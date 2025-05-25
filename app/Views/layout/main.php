@@ -3,67 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - Djaya Aspalt</title>
+  <title>Djaya Aspalt Dashboard</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f8f9fa;
-    }
-
+    body { font-family: 'Segoe UI', sans-serif; background-color: #f8f9fa; }
     .sidebar {
-      height: 100vh;
-      background-color: #f8f9fa;
-      color: white;
+      width: 200px;
+      min-height: 100vh;
+      background-color: #ffffff;
+      border-right: 1px solid #dee2e6;
+      padding-top: 1rem;
     }
-
     .sidebar a {
-      color: black;
+      display: block;
+      padding: 10px 15px;
+      color: #000;
       text-decoration: none;
     }
-
     .sidebar a:hover {
-      color: #495057;
-      padding-left: 10px;
+      background-color: #f1f1f1;
+      padding-left: 20px;
+      transition: 0.2s;
     }
-
-    /* 👉 Tambahkan CSS ini di sini */
-    .row .col-md-6 {
-      margin-bottom: 20px;
+    .topbar {
+      background-color: #f8f9fa;
+      padding: 12px 20px;
+      border-bottom: 1px solid #dee2e6;
     }
+    .topbar input { width: 250px; font-size: 14px; }
+    .main-content { padding: 30px; }
   </style>
 </head>
 <body>
-  <!-- TOPBAR -->
-  <div class="d-flex justify-content-end align-items-center p-2 bg-light">
-    <img src="<?= base_url('assets/profile.jpg') ?>" alt="Foto Profil" class="rounded-circle" width="40" height="40">
-    <a href="<?= base_url('keranjang') ?>" class="mx-3">
-      <img src="<?= base_url('assets/cart.svg') ?>" alt="Keranjang" width="30">
-    </a>
-    <form class="d-flex" role="search" action="<?= base_url('search') ?>">
-      <input class="form-control" type="search" name="q" placeholder="Cari nama..." aria-label="Search">
-    </form>
-  </div>
-
-  <!-- SIDEBAR + MAIN CONTENT dibungkus d-flex -->
   <div class="d-flex">
-    <!-- SIDEBAR -->
-    <div class="sidebar p-3">
-      <h4 class="text-center"><img src="<?= base_url('assets/logoSamping.png') ?>" width="160"></h4>
-      <ul class="list-unstyled">
-        <li><a href="/">🏠 Home</a></li>
-        <li><a href="#">👤 Profile</a></li>
-        <li><a href="#">🖼️ Gallery</a></li>
-        <li><a href="#">📞 Hubungi Kami</a></li>
-        <li><a href="#">📄 Artikel</a></li>
-        <li><a href="#">📦 Pemesanan</a></li>
-        <li><a href="#">❓ Bantuan</a></li>
-      </ul>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="text-center mb-4">
+        <img src="<?= base_url('assets/logoSamping1.png') ?>" width="140" alt="Logo">
+      </div>
+      <a href="<?= base_url('dashboard') ?>">🏠 Home</a>
+      <a href="<?= base_url('profile') ?>">👤 Profile</a>
+      <a href="<?= base_url('gallery') ?>">🖼️ Gallery</a>
+      <a href="<?= base_url('hubungi-kami') ?>">📞 Hubungi Kami</a>
+      <a href="<?= base_url('artikel') ?>">📄 Artikel</a>
+      <a href="<?= base_url('pemesanan') ?>">📦 Pemesanan</a>
+      <a href="<?= base_url('bantuan') ?>">❓ Bantuan</a>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <div class="main-content flex-grow-1 p-4">
-      <?= $this->renderSection('content') ?>
+    <div class="flex-grow-1">
+      <!-- Topbar -->
+      <div class="topbar d-flex justify-content-center align-items-center gap-2">
+      <!-- Form Search -->
+      <form action="<?= base_url('search') ?>" class="d-flex align-items-center">
+        <input class="form-control me-2" type="search" name="q" placeholder="Cari nama...">
+  </form>
+      
+      <!-- Back -->
+      <a href="javascript:history.back()">
+        <img src="<?= base_url('assets/Back-01.png') ?>" width="43" alt="Back">
+      </a>
+      <!-- Cart -->
+      <a href="<?= base_url('keranjang') ?>">
+        <img src="<?= base_url('assets/Keranjang.png') ?>" width="22" alt="Cart">
+      </a>
+      
+      <!-- Profile -->
+      <a href="<?= base_url('profile') ?>">
+        <img src="<?= base_url('assets/Profil-01.png') ?>" width="45" alt="Profile">
+      </a>
+    </div>
+
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <?= $this->renderSection('content') ?>
+      </div>
     </div>
   </div>
 </body>
