@@ -4,42 +4,38 @@
     
     <div class="mb-5">
         <p class="lead">Halo,</p>
-        <p class="lead">Apakah ada yang bisa kami bantu?</p>
+        <p class="lead"><strong>Apakah ada yang bisa kami bantu?</strong></p>
         <p>Pilih Topik sesuai kendala</p>
     </div>
 
 
     <div class="row text-center mb-5">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <h3>Pemesanan</h3>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <h3>Pembayaran</h3>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <h3>Pembayaran</h3>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <h3>Paket/promo</h3>
         </div>
     </div>
 
-    <h2 class="mb-4">Yang Sering ditanyakan</h2>
+    <h3 class="mb-4">Yang Sering ditanyakan</h3>
     
-    <div class="list-group mb-5">
         <a href="#" class="list-group-item list-group-item-action">Bagaimana cara menggunakan paket projek?</a>
+        <hr class="my-2">
         <a href="#" class="list-group-item list-group-item-action">Apa saja metode pembayaran?</a>
+        <hr class="my-2">
         <a href="#" class="list-group-item list-group-item-action">Apa saja paket projek yang sedang berlangsung?</a>
+        <hr class="my-2">
         <a href="#" class="list-group-item list-group-item-action">Bagaimana mengubah metode pembayaran?</a>
+        <hr class="my-2">
         <a href="#" class="list-group-item list-group-item-action">Berapa lama waktu pengiriman?</a>
-    </div>
-
-    <hr class="my-4">
-
-    <div class="text-center mt-5">
-        <p><strong>Masih ada pertanyaan lagi?</strong></p>
-        <p><strong>Tanya</strong></p>
-        <p>trik langsung dengan Customer Service kami</p>
-    </div>
+        <hr class="my-2">
+        <img src="assets/bantuan/cus1.png" alt="Customer Service" style="width: 400px; height: auto; display: block; margin: 2  0px auto;">
 </div>
 <?= $this->endSection() ?>
