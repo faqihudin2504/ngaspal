@@ -9,13 +9,10 @@
         <!-- Card Pemesanan Jasa & Barang -->
         <div class="col-lg-5 col-md-6 mb-4">
             <div class="card h-100 shadow-lg border-primary">
-                <div class="card-header bg-primary text-white">
-                    <h3 class="card-title text-center mb-0">Pemesanan</h3>
-                </div>
                 <div class="card-body text-center p-0">
-                    <img src="/assets/pemesanan/pem1.png" class="img-fluid w-100" alt="Jasa & Barang" style="height: 300px; object-fit: cover;">
+                    <img src="/assets/pemesanan/pem1.png" class="img-fluid w-100" alt="Jasa & Barang" style="height: 400px; object-fit: cover;">
                     <div class="p-4">
-                        <h4 class="card-title">Jasa & Barang</h4>
+                        <h4 class="card-title">Pemesanan <br>Jasa & Barang</h4>
                         <p class="card-text">Pesan jasa pengaspalan dan material berkualitas untuk proyek Anda</p>
                         <div class="mt-3">
                             <a href="/pemesanan/jasa" class="btn btn-primary px-4">
@@ -30,13 +27,10 @@
         <!-- Card Penyewaan Barang -->
         <div class="col-lg-5 col-md-6 mb-4">
             <div class="card h-100 shadow-lg border-success">
-                <div class="card-header bg-success text-white">
-                    <h3 class="card-title text-center mb-0">Penyewaan</h3>
-                </div>
                 <div class="card-body text-center p-0">
-                    <img src="/assets/pemesanan/pem2.png" class="img-fluid w-100" alt="Penyewaan Barang" style="height: 300px; object-fit: cover;">
+                    <img src="/assets/pemesanan/pem2.png" class="img-fluid w-100" alt="Penyewaan Barang" style="height: 400px; object-fit: cover;">
                     <div class="p-4">
-                        <h4 class="card-title">Barang</h4>
+                        <h4 class="card-title">Penyewaan <br>Barang</h4>
                         <p class="card-text">Sewa peralatan dan mesin untuk kebutuhan proyek pengaspalan Anda</p>
                         <div class="mt-3">
                             <a href="/penyewaan/barang" class="btn btn-success px-4">

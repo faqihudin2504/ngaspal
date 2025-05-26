@@ -7,7 +7,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/assets/profile/pro1.png" style="width: 450px; alt="Pekerjaan Pengaspalan" class="img-fluid rounded">
+                    <img src="/assets/profile/pro1.png" style="width: 450px"; alt="Pekerjaan Pengaspalan" class="img-fluid rounded">
                 </div>
                 <div class="col-md-8">
                     <p class="card-text">
