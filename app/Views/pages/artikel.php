@@ -1,10 +1,6 @@
 <?= $this->extend('layout/main') ?>
 <?= $this->section('content') ?>
 <div class="container py-5">
-    <div class="text-center mb-5">
-        <h1 class="display-4">Artikel Terkait</h1>
-        <p class="lead">Informasi terbaru seputar pengaspalan jalan dan kontraktor jalan</p>
-    </div>
 
     <div class="row">
         <!-- Artikel 1 -->
@@ -74,7 +70,7 @@
         <!-- Artikel 5 -->
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100 shadow-sm">
-                <img src="/public/images/articles/perbaikan-jalan.jpg" class="card-img-top" alt="Perbaikan Jalan">
+                <img src="/assets/artikel/art5.png" class="card-img-top" alt="Perbaikan Jalan">
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-2">
                         <span class="badge bg-secondary">Tips</span>
@@ -90,7 +86,7 @@
         <!-- Artikel 6 -->
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100 shadow-sm">
-                <img src="/public/images/articles/material-aspal.jpg" class="card-img-top" alt="Material Aspal">
+                <img src="/assets/artikel/art6.png" class="card-img-top" alt="Material Aspal">
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-2">
                         <span class="badge bg-danger">Material</span>

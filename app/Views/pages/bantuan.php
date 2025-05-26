@@ -1,22 +1,20 @@
 <?= $this->extend('layout/main') ?>
 <?= $this->section('content') ?>
 <div class="container">
-    <h1 class="text-center my-4">DJANA ASPALT</h1>
     
-    <div class="text-center mb-5">
+    <div class="mb-5">
         <p class="lead">Halo,</p>
         <p class="lead">Apakah ada yang bisa kami bantu?</p>
         <p>Pilih Topik sesuai kendala</p>
     </div>
 
-    <hr class="my-4">
 
     <div class="row text-center mb-5">
         <div class="col-md-3">
             <h3>Pemesanan</h3>
         </div>
         <div class="col-md-3">
-            <h3>Penuguan</h3>
+            <h3>Pembayaran</h3>
         </div>
         <div class="col-md-3">
             <h3>Pembayaran</h3>
