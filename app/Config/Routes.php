@@ -17,3 +17,7 @@ $routes->get('artikel', 'Pages::artikel');
 $routes->get('pemesanan', 'Pages::pemesanan');
 $routes->get('bantuan', 'Pages::bantuan');
 $routes->get('keranjang', 'Pages::keranjang');
+$routes->group('', function($routes) {
+    $routes->get('pemesanan-jasa', 'PemesananJasa::index');
+    $routes->post('pemesanan-jasa/simpan', 'PemesananJasa::simpan');
+});
