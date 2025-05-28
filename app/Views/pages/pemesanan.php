@@ -15,7 +15,7 @@
                         <h4 class="card-title">Pemesanan <br>Jasa & Barang</h4>
                         <p class="card-text">Pesan jasa pengaspalan dan material berkualitas untuk proyek Anda</p>
                         <div class="mt-3">
-                            <a href="/Views/PemesananJasa" class="btn btn-primary px-4">
+                            <a href="/app/Views/PemesananJasa.php" class="btn btn-primary px-4">
                                 Pesan Sekarang
                             </a>
                         </div>
