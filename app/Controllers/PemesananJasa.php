@@ -1,48 +1,32 @@
 <?php
-
 namespace App\Controllers;
-
-use App\Models\PemesananJasaModel;
 
 class PemesananJasa extends BaseController
 {
-    protected $pemesananModel;
-
-    public function __construct()
-    {
-        $this->pemesananModel = new PemesananJasaModel();
-    }
-
     public function index()
     {
-        $data = [
-            'title' => 'Pemesanan Jasa',
-            'validation' => \Config\Services::validation()
-        ];
-        return view('pemesanan_jasa', $data);
+        if (!session()->get('logged_in')) {
+            return redirect()->to('/');
+        }
+        return view('pages/pemesanan_gabung');
     }
 
     public function simpan()
     {
-        // Validation rules
-        $rules = [
-            'nama_lengkap' => 'required',
-            'no_telepon' => 'required',
-            'tanggal_waktu' => 'required',
-            'alamat' => 'required'
+        $data = [
+            'nama' => $this->request->getPost('nama'),
+            'telepon' => $this->request->getPost('telepon'),
+            'tanggal_survey' => $this->request->getPost('tanggal_survey'),
+            'jam_survey' => $this->request->getPost('jam_survey'),
+            'alamat_survey' => $this->request->getPost('alamat_survey'),
+            'tanggal_pelaksanaan' => $this->request->getPost('tanggal_pelaksanaan'),
+            'jam_pelaksanaan' => $this->request->getPost('jam_pelaksanaan'),
+            'alamat_pelaksanaan' => $this->request->getPost('alamat_pelaksanaan'),
+            'durasi' => $this->request->getPost('durasi'),
         ];
 
-        if (!$this->validate($rules)) {
-            return redirect()->to('/pemesanan-jasa')->withInput();
-        }
+        // Simpan ke database kalau perlu
 
-        $this->pemesananModel->save([
-            'nama_lengkap' => $this->request->getVar('nama_lengkap'),
-            'no_telepon' => $this->request->getVar('no_telepon'),
-            'tanggal_waktu' => $this->request->getVar('tanggal_waktu'),
-            'alamat' => $this->request->getVar('alamat')
-        ]);
-
-        return redirect()->to('/pemesanan-jasa')->with('pesan', 'Pemesanan berhasil dikirim');
+        return redirect()->to('/dashboard')->with('success', 'Pemesanan berhasil dikirim!');
     }
 }
