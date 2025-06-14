@@ -234,9 +234,9 @@
                   <div class="text-muted" style="font-size: 0.8em;"><?= session()->get('email') ?? '' ?></div>
               </div>
           </div>
-          <a href="<?= base_url('customer-profile') ?>" class="text-dark text-decoration-none menu-item">Informasi Akun</a>
-          <a href="<?= base_url('histori-pemesanan') ?>" class="text-dark text-decoration-none menu-item">Histori Pemesanan</a>
-          <a href="<?= base_url('histori-penyewaan') ?>" class="text-dark text-decoration-none menu-item">Histori Penyewaan</a>
+          <a href="<?= base_url('customer-profile') ?>" class="text-dark text-decoration-none menu-item">Informasi Akun<br></a>
+          <a href="<?= base_url('histori-pemesanan') ?>" class="text-dark text-decoration-none menu-item">Histori Pemesanan<br></a>
+          <a href="<?= base_url('histori-penyewaan') ?>" class="text-dark text-decoration-none menu-item">Histori Penyewaan<br></a>
           <a href="<?= base_url('logout') ?>" class="text-danger text-decoration-none menu-item">Keluar Akun</a>
       </div>
       <?php endif; ?>
