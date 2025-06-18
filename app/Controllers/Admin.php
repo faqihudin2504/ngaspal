@@ -5,11 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\UserModel;
 use App\Models\PelaksanaanModel;
-use App\Models\PenyewaanModel;
-use App\Models\AlatModel;
-use App\Models\PembayaranModel;
-use App\Models\PemesananModel; // Pastikan ini di-import
-use App\Models\PengembalianModel;
+use App\Models\PemesananModel;
 
 class Admin extends BaseController
 {
@@ -73,11 +69,54 @@ class Admin extends BaseController
         return redirect()->to('admin/profile');
     }
 
-    // Menampilkan daftar pelanggan dari database
+    // --- METODE INI DIUBAH DENGAN DATA LENGKAP ---
     public function manajemenPengguna(): string
     {
-        $model = new UserModel();
-        $data['pelanggan_list'] = $model->where('role', 'customer')->findAll();
+        // Data dummy agar tampilan sesuai screenshot
+        $data['pelanggan_desember'] = [
+            [
+                'id_pelanggan' => 'S12122024001',
+                'id_survey' => 'Survey12122024001',
+                'id_nama_sewa' => '-',
+                'nama_lengkap' => 'Samuel Orief Rosario',
+                'no_telpon' => '083870126241',
+                'tanggal_survey' => '12-12-2024 Jam 07.00 WIB',
+                'lokasi' => 'Jl. Bhakti No.48 3, RT.3/RW.7, Cilandak Tim., Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12560'
+            ],
+            [
+                'id_pelanggan' => 'S12122024002',
+                'id_survey' => '-',
+                'id_nama_sewa' => 'Sewa121220241',
+                'nama_lengkap' => 'Samuel Orief Rosario',
+                'no_telpon' => '083870126241',
+                'tanggal_survey' => '-',
+                'lokasi' => 'Jl. Bhakti No.48 3, RT.3/RW.7, Cilandak Tim., Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12560'
+            ],
+            // --- DATA BARU DITAMBAHKAN DI SINI ---
+            [
+                'id_pelanggan' => 'B12122024003',
+                'id_survey' => '-',
+                'id_nama_sewa' => 'Sewa121220242',
+                'nama_lengkap' => 'Bagus Adi Wibowo',
+                'no_telpon' => '083888813782',
+                'tanggal_survey' => '-',
+                'lokasi' => 'Jl.Bangka Raya Gang Amal 4 rt.004/011 no.13, Mampang prapatan, Pela Mampang, Kota Jakarta Selatan.'
+            ],
+            [
+                'id_pelanggan' => 'M12122024004',
+                'id_survey' => 'Survey12122024001',
+                'id_nama_sewa' => '-',
+                'nama_lengkap' => 'Mochamad Rizky Ainur Ridho',
+                'no_telpon' => '085885559999',
+                'tanggal_survey' => '19-12-2024 Jam 14.00 WIB',
+                'lokasi' => 'Jl. Masjid No.83, RT.007/RW.1, Pangkalan Jati Baru, Kec. Cinere, Kota Depok, Jawa Barat 16513'
+            ]
+        ];
+
+        // Bulan lain kita buat kosong
+        $data['pelanggan_november'] = [];
+        $data['pelanggan_oktober'] = [];
+        
         return view('admin/manajemen_pengguna', $data);
     }
     
@@ -197,29 +236,20 @@ class Admin extends BaseController
         return redirect()->to('/admin/pelaksanaan')->with('success', 'Data pelaksanaan baru berhasil ditambahkan.');
     }
 
-    // --- Tambahkan method kelolaPemesanan di sini ---
     public function kelolaPemesanan()
     {
-        $pemesananModel = new PemesananModel(); // Buat instance PemesananModel
-        $data['pemesanan_list'] = $pemesananModel->getPemesananWithDetails(); // Gunakan fungsi getPemesananWithDetails yang sudah diperbaiki
+        $pemesananModel = new PemesananModel();
+        $data['pemesanan_list'] = $pemesananModel->getPemesananWithDetails();
 
-        return view('admin/pemesanan', $data); // Sesuaikan dengan nama view yang ingin Anda tampilkan
+        return view('admin/pemesanan', $data);
     }
 
-    // Anda juga perlu menambahkan method edit, update, dan hapus untuk pemesanan jika ada fitur tersebut
-    // Contoh:
-    // public function editPemesanan($id) { ... }
-    // public function updatePemesanan() { ... }
-    // public function hapusPemesanan($id) { ... }
-
-
-    // --- RUTE BARU UNTUK EDIT, UPDATE, & HAPUS PELAKSANAAN ---
     public function editPelaksanaan($id)
     {
         $pelaksanaanModel = new PelaksanaanModel();
         $userModel = new UserModel();
         $data['pelaksanaan'] = $pelaksanaanModel->find($id);
-        $data['pelanggan_list'] = $userModel->where('role', 'customer')->findAll(); // Untuk dropdown pilihan pelanggan
+        $data['pelanggan_list'] = $userModel->where('role', 'customer')->findAll(); 
 
         if (empty($data['pelaksanaan'])) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Data pelaksanaan dengan ID ' . $id . ' tidak ditemukan');

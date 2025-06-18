@@ -124,7 +124,6 @@
       <a href="<?= base_url('admin') ?>">🏠 Home</a>
       <a href="<?= base_url('admin/pelanggan') ?>">👥 Manajemen Klien</a>
       <a href="<?= base_url('admin/pelaksanaan') ?>">📅 Pelaksanaan</a>
-      {{-- BARIS INI HANYA SATU YANG AKTIF --}}
       <a href="<?= base_url('admin/kelola-pemesanan') ?>">📦 Pemesanan</a>
       <a href="<?= base_url('admin/penyewaan') ?>">🏗️ Penyewaan</a>
       <a href="<?= base_url('admin/alat') ?>">🔧 Alat</a>

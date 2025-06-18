@@ -2,43 +2,33 @@
 
 namespace App\Controllers;
 
-use App\Controllers\BaseController;
-
 class Login extends BaseController
 {
     public function __construct()
     {
-        helper('url');
+        helper(['form']);
     }
 
     public function showLoginForm()
     {
-        if (session()->get('logged_in')) {
-            if (session()->get('role') === 'admin') {
-                return redirect()->to('admin');
-            }
-            return redirect()->to('dashboard');
-        }
         return view('auth/login');
     }
 
     public function login()
     {
-        $email = $this->request->getPost('username'); // Nama field dari form adalah 'username', yang diisi email
+        $email = $this->request->getPost('username');
         $password = $this->request->getPost('password');
 
-        // Menggunakan UserModel untuk otentikasi
-        $userModel = new \App\Models\UserModel(); // Pastikan Anda menggunakan UserModel yang sudah dimuat
+        $userModel = new \App\Models\UserModel();
 
-        // Mencari user berdasarkan email
-        $user = $userModel->where('email', $email)->first(); // Cari berdasarkan email
+        $user = $userModel->where('email', $email)->first();
 
-        if ($user && password_verify($password, $user['password'])) { // Verifikasi password
+        if ($user && password_verify($password, $user['password'])) {
             session()->set([
                 'user_id'      => $user['id'],
-                'username'     => $user['username'], // Simpan username juga jika perlu
+                'username'     => $user['username'],
                 'email'        => $user['email'],
-                'nama_lengkap' => $user['nama_lengkap'], // Ambil nama lengkap dari database
+                'nama_lengkap' => $user['nama_lengkap'],
                 'role'         => $user['role'],
                 'foto_profil'  => $user['foto_profil'],
                 'logged_in'    => true,
@@ -53,7 +43,7 @@ class Login extends BaseController
             return redirect()->back()->withInput()->with('error', 'Email atau Password yang Anda masukkan salah.');
         }
     }
-    
+
     public function logout()
     {
         session()->destroy();
